@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomAppbar">
+        <attr name="customStartIcon" format="integer" />
+        <attr name="customEndIcon" format="integer" />
+        <attr name="customPageTitle" format="integer" />
+    </declare-styleable>
+
+
+</resources>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">E Bcome Test</string>
+    /------ Network ---------/
+    <string name="forbidden">غیر مجاز</string>
+    <string name="eofException">خطای فایل</string>
+    <string name="ioException">خطای برقراری ارتباط با سرور</string>
+    <string name="internetConnection">خطای برقراری ارتباط با سرور</string>
+    <string name="serverConnection">خطای برقراری ارتباط با سرور</string>
+    <string name="sslException">خطای برقراری ارتباط با سرور</string>
+    <string name="sqLiteException">خطای ذخیره سازی اطلاعات</string>
+    <string name="authorization">خطای دسترسی</string>
+    <string name="runtimeException">خطایی رخ داده</string>
+    <string name="jsonFormat">خطایی رخ داده</string>
+    <string name="undefineException">خطایی رخ داده</string>
+    /------ End ---------/
+
+
+    <string name="myMessage">پیام های من</string>
+    <string name="creditMessage">اعتبار پیام</string>
+    <string name="not_available_message">هیچ پیامی جهت نمایش موجود نیست</string>
+    <string name="public_message">عمومی</string>
+    <string name="save_message">ذخیره شده</string>
+
+</resources>

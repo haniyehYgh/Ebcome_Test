@@ -1,0 +1,85 @@
+ext.sdk = [
+        compileSdk : 32,
+        minSdk     : 23,
+        targetSdk  : 32,
+        versionCode: 1,
+        versionName: "1.0"
+]
+
+ext.versions = [
+        kotlin           : '1.7.0',
+
+        lifecycle        : '2.5.0-alpha04',
+
+        appCompat        : '1.4.1',
+        material         : '1.5.0',
+        constraitLayout  : '2.1.3',
+        coordinatorlayout: '1.2.0',
+
+        junit            : '4.13.2',
+        espresso         : '3.4.0',
+
+        glide            : '4.13.0',
+
+        room             : '2.4.2',
+
+        retrofit         : '2.9.0',
+        okhttp           : '4.9.3',
+
+        gson             : '2.8.6',
+
+        hilt             : '2.38.1',
+        hilt_lifecycle   : '1.0.0-alpha03',
+        hilt_androidx    : '1.0.0',
+
+        coroutines       : '1.6.0',
+
+        multidex         : '2.0.1',
+
+
+
+
+]
+
+ext.deps = [
+        kotlin            : "androidx.core:core-ktx:$versions.kotlin",
+
+        appCompat         : "androidx.appcompat:appcompat:$versions.appCompat",
+        material          : "com.google.android.material:material:$versions.material",
+        constraitLayout   : "androidx.constraintlayout:constraintlayout:$versions.constraitLayout",
+        coordinatorlayout : "androidx.coordinatorlayout:coordinatorlayout:$versions.coordinatorlayout",
+
+        junit             : "com.google.android.material:material:$versions.material",
+        espresso          : "androidx.test.espresso:espresso-core:$versions.espresso",
+
+        glide             : "com.github.bumptech.glide:glide:$versions.glide",
+        glideCompiler     : "com.github.bumptech.glide:compiler:$versions.glide",
+
+        room              : "androidx.room:room-runtime:$versions.room",
+        roomCompiler      : "androidx.room:room-compiler:$versions.room",
+        room_ktx          : "androidx.room:room-ktx:$versions.room",
+
+        retrofit          : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        retrofit_gson     : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        okhttp            : "com.squareup.okhttp3:okhttp:$versions.okhttp",
+        okhttp_logging    : "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
+
+
+        viewmodel_ktx     : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle",
+        livedata          : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle",
+        lifecycle         : "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle",
+
+
+        hilt              : "com.google.dagger:hilt-android:$versions.hilt",
+        hilt_compiler     : "com.google.dagger:hilt-android-compiler:$versions.hilt",
+        hilt_lifecycle    : "androidx.hilt:hilt-lifecycle-viewmodel:$versions.hilt_lifecycle",
+        hilt_androidx     : "androidx.hilt:hilt-compiler:$versions.hilt_androidx",
+
+        coroutines_core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+        coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines",
+
+        multidex          : "androidx.multidex:multidex:$versions.multidex",
+
+
+
+]

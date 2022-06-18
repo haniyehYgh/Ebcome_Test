@@ -1,0 +1,147 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id "androidx.navigation.safeargs.kotlin"
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+}
+
+
+
+
+
+
+android {
+    compileSdk sdk.compileSdk
+
+    defaultConfig {
+        applicationId "com.example.ebcometest"
+        minSdk sdk.minSdk
+        targetSdk sdk.targetSdk
+        versionCode sdk.versionCode
+        versionName sdk.versionName
+        multiDexEnabled = true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+
+}
+
+dependencies {
+
+    /**
+     * Android Support Library
+     * */
+    implementation deps.kotlin
+    implementation deps.appCompat
+    implementation deps.material
+    implementation deps.constraitLayout
+    implementation deps.coordinatorlayout
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    /**
+     * Android Test Library
+     * */
+    testImplementation deps.junit
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation deps.espresso
+
+    /**
+     * Glide
+     * */
+    implementation deps.glide
+    kapt deps.glideCompiler
+
+    /**
+     * Room
+     * */
+    implementation(deps.room)
+    annotationProcessor(deps.roomCompiler)
+    // To use Kotlin annotation processing tool (kapt)
+    kapt deps.roomCompiler
+    //Kotlin Extensions and Coroutines support for Room
+    implementation(deps.room_ktx)
+
+    /**
+     * Retrofit 2
+     * https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
+     * */
+    implementation(deps.retrofit)
+    implementation(deps.retrofit_gson)
+    implementation(deps.okhttp)
+    implementation(deps.okhttp_logging)
+
+    /**
+     * Lifecycle
+     * https://developer.android.com/jetpack/androidx/releases/lifecycle
+     * */
+
+    // ViewModel
+    implementation(deps.viewmodel_ktx)
+    // LiveData
+    implementation(deps.livedata)
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation(deps.lifecycle)
+
+
+    /**
+     * Android Logger
+     * */
+    api 'com.jakewharton.timber:timber:4.7.1'
+
+    /**
+     * Hilt DI
+     * https://developer.android.com/training/dependency-injection/hilt-android
+     * */
+    implementation(deps.hilt)
+    kapt(deps.hilt_compiler)
+    implementation(deps.hilt_lifecycle)
+    kapt(deps.hilt_androidx)
+
+    /**
+     * Coroutines
+     * */
+    implementation(deps.coroutines_core)
+    implementation(deps.coroutines_android)
+
+
+    /**
+     * multidex
+     */
+    implementation(deps.multidex)
+
+
+
+
+
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}
