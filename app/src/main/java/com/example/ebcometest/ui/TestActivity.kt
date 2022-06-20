@@ -128,25 +128,21 @@ class TestActivity : ParentActivity<TestViewModel, ActivityTestBinding>() {
         }
     }
 
-    private fun deleteMessage(pos: MessageEntity) {
+    private fun deleteMessage(value: MessageEntity) {
 
 
-        if (messageDb.messageDao().getAllMessage().size==1){
-            messageDb.messageDao().getDeleteAll()
-            setupListMessage()
 
-        }else{
             val messageEntity = MessageEntity(
-                pos.id,
-                pos.title,
-                pos.description,
-                pos.image,
-                pos.unread
+                value.id,
+                value.title,
+                value.description,
+                value.image,
+                value.unread
             )
             messageDb.messageDao().deleteMessage(messageEntity)
             setupListMessage()
 
-        }
+
 
 
 
