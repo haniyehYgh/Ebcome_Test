@@ -10,7 +10,7 @@ import com.example.ebcometest.data.local.MessageEntity
 import com.example.ebcometest.databinding.ItemTestAdapterBinding
 import com.example.ebcometest.model.dto.MessageResponse
 
-class TestAdapter( val callbackDelete: (Int) -> Unit,
+class TestAdapter( val callbackDelete: (MessageEntity) -> Unit,
                   val callbackFavorite: (Int) -> Unit) : ListAdapter<MessageEntity, TestAdapter.TestViewHolder>(object :
     DiffUtil.ItemCallback<MessageEntity>() {
     override fun areItemsTheSame(oldItem: MessageEntity, newItem: MessageEntity): Boolean =
@@ -44,7 +44,7 @@ class TestAdapter( val callbackDelete: (Int) -> Unit,
 
 
             binding.deleteCb.setOnClickListener {
-              callbackDelete.invoke(position)
+              callbackDelete.invoke(value)
             }
 
         }

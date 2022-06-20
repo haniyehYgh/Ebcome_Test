@@ -26,7 +26,7 @@ abstract class ParentActivity<T : BaseAndroidViewModel,E:ViewDataBinding> : Base
                state?.let {
                     when(it){
                          UiState.LOADING -> onShowLoading()
-                         UiState.LOADED -> onHideLoading()
+                         UiState.HIDELOADING -> onHideLoading()
                     }
                }
           }

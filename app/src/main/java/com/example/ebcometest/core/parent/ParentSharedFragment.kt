@@ -27,7 +27,7 @@ abstract class ParentSharedFragment<T : BaseAndroidViewModel, E : ViewDataBindin
             state?.let {
                 when (it) {
                     UiState.LOADING -> showLoading()
-                    UiState.LOADED -> hideLoading()
+                    UiState.HIDELOADING -> hideLoading()
                 }
             }
         }

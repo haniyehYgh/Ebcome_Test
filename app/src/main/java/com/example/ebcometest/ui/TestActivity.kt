@@ -22,6 +22,8 @@ class TestActivity : ParentActivity<TestViewModel, ActivityTestBinding>() {
 
     private val adapter by lazy {
         TestAdapter(callbackDelete = {
+
+
             deleteMessage(it)
         }, callbackFavorite = {
         })
@@ -70,8 +72,12 @@ class TestActivity : ParentActivity<TestViewModel, ActivityTestBinding>() {
                 override fun onTabSelected(tab: TabLayout.Tab) {
                     when (tab.position) {
                         0 -> {
-                            messageCl.visibility = View.VISIBLE
-                            noMessageCl.visibility = View.GONE
+
+                            if (messageDb.messageDao().getAllMessage().isNotEmpty()){
+                                messageCl.visibility = View.VISIBLE
+                                noMessageCl.visibility = View.GONE
+                            }
+
                         }
                         1 -> {
                             messageCl.visibility = View.GONE
@@ -114,19 +120,39 @@ class TestActivity : ParentActivity<TestViewModel, ActivityTestBinding>() {
             adapter.submitList(messageDb.messageDao().getAllMessage())
             binding.tabLayout.getTabAt(0)?.orCreateBadge?.number =
                 messageDb.messageDao().getAllMessage().size
+        }else{
+           binding. messageCl.visibility = View.GONE
+          binding.  noMessageCl.visibility = View.VISIBLE
+            binding.tabLayout.getTabAt(0)?.orCreateBadge?.number =
+                messageDb.messageDao().getAllMessage().size
         }
     }
 
-    private fun deleteMessage(pos: Int) {
-        val messageEntity = MessageEntity(
-            messageDb.messageDao().getAllMessage()[pos].id,
-            messageDb.messageDao().getAllMessage()[pos].title,
-            messageDb.messageDao().getAllMessage()[pos].description,
-            messageDb.messageDao().getAllMessage()[pos].image,
-            messageDb.messageDao().getAllMessage()[pos].unread
-        )
-        messageDb.messageDao().deleteMessage(messageEntity)
-        setupListMessage()
+    private fun deleteMessage(pos: MessageEntity) {
+
+
+        if (messageDb.messageDao().getAllMessage().size==1){
+            messageDb.messageDao().getDeleteAll()
+            setupListMessage()
+
+        }else{
+            val messageEntity = MessageEntity(
+                pos.id,
+                pos.title,
+                pos.description,
+                pos.image,
+                pos.unread
+            )
+            messageDb.messageDao().deleteMessage(messageEntity)
+            setupListMessage()
+
+        }
+
+
+
+
+
+
     }
 
 

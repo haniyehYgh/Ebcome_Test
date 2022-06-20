@@ -28,7 +28,7 @@ open class BaseAndroidViewModel(application: Application) : AndroidViewModel(app
                         getApplication<App>().getString(result.messageRes!!)
                     is NetworkResult.NetworkError -> errorHandler.value = result.message!!
                     is NetworkResult.Loaded -> {
-                        uiState.value = UiState.LOADED
+                        uiState.value = UiState.HIDELOADING
                     }
                     is NetworkResult.Loading -> {
                         uiState.value = UiState.LOADING
